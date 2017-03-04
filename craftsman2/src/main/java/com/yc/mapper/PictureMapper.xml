@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.PictureMapper" >
-  <resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.Picture" >
+<mapper namespace="com.yc.mapper.PictureMapper" >
+  <resultMap id="BaseResultMap" type="Picture" >
     <id column="pictureb_id" property="picturebId" jdbcType="INTEGER" />
     <result column="pictureb_path" property="picturebPath" jdbcType="VARCHAR" />
     <result column="pictureb_name" property="picturebName" jdbcType="VARCHAR" />
     <result column="pictureb_time" property="picturebTime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.craftsman.ssm.entity.Picture" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="Picture" extends="BaseResultMap" >
     <result column="pictureb_img" property="picturebImg" jdbcType="LONGVARBINARY" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -28,13 +28,13 @@
     delete from picturetb
     where pictureb_id = #{picturebId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.craftsman.ssm.entity.Picture" >
+  <insert id="insert" parameterType="Picture" >
     insert into picturetb (pictureb_id, pictureb_path, pictureb_name, 
       pictureb_time, pictureb_img)
     values (#{picturebId,jdbcType=INTEGER}, #{picturebPath,jdbcType=VARCHAR}, #{picturebName,jdbcType=VARCHAR}, 
       #{picturebTime,jdbcType=TIMESTAMP}, #{picturebImg,jdbcType=LONGVARBINARY})
   </insert>
-  <insert id="insertSelective" parameterType="com.craftsman.ssm.entity.Picture" >
+  <insert id="insertSelective" parameterType="Picture" >
     insert into picturetb
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="picturebId != null" >
@@ -71,7 +71,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.Picture" >
+  <update id="updateByPrimaryKeySelective" parameterType="Picture" >
     update picturetb
     <set >
       <if test="picturebPath != null" >
@@ -89,7 +89,7 @@
     </set>
     where pictureb_id = #{picturebId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.craftsman.ssm.entity.Picture" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="Picture" >
     update picturetb
     set pictureb_path = #{picturebPath,jdbcType=VARCHAR},
       pictureb_name = #{picturebName,jdbcType=VARCHAR},
@@ -97,7 +97,7 @@
       pictureb_img = #{picturebImg,jdbcType=LONGVARBINARY}
     where pictureb_id = #{picturebId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.Picture" >
+  <update id="updateByPrimaryKey" parameterType="Picture" >
     update picturetb
     set pictureb_path = #{picturebPath,jdbcType=VARCHAR},
       pictureb_name = #{picturebName,jdbcType=VARCHAR},

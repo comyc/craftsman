@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.DetailInfoItemMapper" >
-  <resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.DetailInfoItem" >
+<mapper namespace="com.yc.mapper.DetailInfoItemMapper" >
+  <resultMap id="BaseResultMap" type="DetailInfoItem" >
     <id column="detailinfoitemtb_id" property="detailinfoitemtbId" jdbcType="INTEGER" />
     <result column="detailinfoitemtb_name" property="detailinfoitemtbName" jdbcType="VARCHAR" />
     <result column="alternative1" property="alternative1" jdbcType="VARCHAR" />
@@ -21,7 +21,7 @@
     delete from detailinfoitemtb
     where detailinfoitemtb_id = #{detailinfoitemtbId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.craftsman.ssm.entity.DetailInfoItem" >
+  <insert id="insert" parameterType="DetailInfoItem" >
     insert into detailinfoitemtb (detailinfoitemtb_id, detailinfoitemtb_name, 
       alternative1, alternative2, alternative3
       )
@@ -29,7 +29,7 @@
       #{alternative1,jdbcType=VARCHAR}, #{alternative2,jdbcType=VARCHAR}, #{alternative3,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.craftsman.ssm.entity.DetailInfoItem" >
+  <insert id="insertSelective" parameterType="DetailInfoItem" >
     insert into detailinfoitemtb
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="detailinfoitemtbId != null" >
@@ -66,7 +66,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.DetailInfoItem" >
+  <update id="updateByPrimaryKeySelective" parameterType="DetailInfoItem" >
     update detailinfoitemtb
     <set >
       <if test="detailinfoitemtbName != null" >
@@ -84,7 +84,7 @@
     </set>
     where detailinfoitemtb_id = #{detailinfoitemtbId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.DetailInfoItem" >
+  <update id="updateByPrimaryKey" parameterType="DetailInfoItem" >
     update detailinfoitemtb
     set detailinfoitemtb_name = #{detailinfoitemtbName,jdbcType=VARCHAR},
       alternative1 = #{alternative1,jdbcType=VARCHAR},

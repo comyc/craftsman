@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.UserMapper">
-	<resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.User">
+<mapper namespace="com.yc.mapper.UserMapper">
+	<resultMap id="BaseResultMap" type="User">
 		<id column="usertb_id" property="usertbId" jdbcType="INTEGER" />
 		<result column="usertb_name" property="usertbName" jdbcType="VARCHAR" />
 		<result column="usertb_password" property="usertbPassword"
@@ -55,7 +55,7 @@
 			and usertb_password=#{usertbPassword}
 		</if>
 	</select>
-	<insert id="insert" parameterType="com.craftsman.ssm.entity.User" >
+	<insert id="insert" parameterType="User" >
     insert into usertb (usertb_id, usertb_name, usertb_password, 
       usertb_cellphone, usertb_qq, usertb_weixin, 
       usertb_email, usertb_headpic, usertb_sex, 
@@ -67,7 +67,7 @@
       #{usertbStatus,jdbcType=INTEGER}, #{usertbRegtime,jdbcType=TIMESTAMP}, #{alternative1,jdbcType=VARCHAR}, 
       #{alternative2,jdbcType=VARCHAR}, #{alternative3,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.craftsman.ssm.entity.User" >
+  <insert id="insertSelective" parameterType="User" >
     insert into usertb
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="usertbId != null" >
@@ -165,7 +165,7 @@
 		values
 		(#{usertbName},#{usertbPassword},0,#{usertbEmail},now());
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.User">
+	<update id="updateByPrimaryKeySelective" parameterType="User">
 		update usertb
 		<set>
 			<if test="usertbName != null">
@@ -213,7 +213,7 @@
 	<update id="updatePwd" parameterType="User">
 			update usertb set usertb_password=#{usertbPassword} where usertb_id=#{usertbId}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.User">
+	<update id="updateByPrimaryKey" parameterType="User">
 		update usertb
 		set usertb_name = #{usertbName,jdbcType=VARCHAR},
 		usertb_password = #{usertbPassword,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.WorkpriceMapper">
-	<resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.Workprice">
+<mapper namespace="com.yc.mapper.WorkpriceMapper">
+	<resultMap id="BaseResultMap" type="Workprice">
 		<id column="workpricetb_id" property="workpricetbId" jdbcType="INTEGER" />
 		<result column="workertypetb_id" property="workertypetbId"
 			jdbcType="INTEGER" />
@@ -61,7 +61,7 @@
 		workpricetb
 		where workpricetb_id = #{workpricetbId,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.craftsman.ssm.entity.Workprice">
+	<insert id="insert" parameterType="Workprice">
 		insert into workpricetb (workpricetb_id, workertypetb_id,
 		workpricetb_name,
 		workpricetb_priceone, workpricetb_pricetwo,
@@ -76,7 +76,7 @@
 		#{alternative3,jdbcType=VARCHAR}
 		)
 	</insert>
-	<insert id="insertSelective" parameterType="com.craftsman.ssm.entity.Workprice">
+	<insert id="insertSelective" parameterType="Workprice">
 		insert into workpricetb
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="workpricetbId != null">
@@ -131,7 +131,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.Workprice">
+	<update id="updateByPrimaryKeySelective" parameterType="Workprice">
 		update workpricetb
 		<set>
 			<if test="workertypetbId != null">
@@ -158,7 +158,7 @@
 		</set>
 		where workpricetb_id = #{workpricetbId,jdbcType=INTEGER}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.Workprice">
+	<update id="updateByPrimaryKey" parameterType="Workprice">
 		update workpricetb
 		set workertypetb_id = #{workertypetbId,jdbcType=INTEGER},
 		workpricetb_name = #{workpricetbName,jdbcType=VARCHAR},

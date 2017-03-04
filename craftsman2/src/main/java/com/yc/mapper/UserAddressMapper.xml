@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.UserAddressMapper" >
-  <resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.UserAddress" >
+<mapper namespace="com.yc.mapper.UserAddressMapper" >
+  <resultMap id="BaseResultMap" type="UserAddress" >
     <id column="useraddresstb_id" property="useraddresstbId" jdbcType="INTEGER" />
     <result column="usertb_id" property="usertbId" jdbcType="INTEGER" />
     <result column="useraddresstb_address" property="useraddresstbAddress" jdbcType="VARCHAR" />
@@ -36,7 +36,7 @@
     delete from useraddresstb
     where useraddresstb_id = #{useraddresstbId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.craftsman.ssm.entity.UserAddress" >
+  <insert id="insert" parameterType="UserAddress" >
     insert into useraddresstb (useraddresstb_id, usertb_id, useraddresstb_address, 
       alternative1, alternative2, alternative3
       )
@@ -44,7 +44,7 @@
       #{alternative1,jdbcType=VARCHAR}, #{alternative2,jdbcType=VARCHAR}, #{alternative3,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.craftsman.ssm.entity.UserAddress" >
+  <insert id="insertSelective" parameterType="UserAddress" >
     insert into useraddresstb
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="useraddresstbId != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.UserAddress" >
+  <update id="updateByPrimaryKeySelective" parameterType="UserAddress" >
     update useraddresstb
     <set >
       <if test="usertbId != null" >
@@ -108,7 +108,7 @@
     </set>
     where useraddresstb_id = #{useraddresstbId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.UserAddress" >
+  <update id="updateByPrimaryKey" parameterType="UserAddress" >
     update useraddresstb
     set usertb_id = #{usertbId,jdbcType=INTEGER},
       useraddresstb_address = #{useraddresstbAddress,jdbcType=VARCHAR},

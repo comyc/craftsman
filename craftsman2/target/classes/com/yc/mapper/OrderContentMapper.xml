@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.OrderContentMapper" >
-  <resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.OrderContent" >
+<mapper namespace="com.yc.mapper.OrderContentMapper" >
+  <resultMap id="BaseResultMap" type="OrderContent" >
     <id column="ordercontenttb_id" property="ordercontenttbId" jdbcType="INTEGER" />
     <result column="ordertb_id" property="ordertbId" jdbcType="INTEGER" />
 
@@ -26,11 +26,11 @@
     delete from ordercontenttb
     where ordercontenttb_id = #{ordercontenttbId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.craftsman.ssm.entity.OrderContent" useGeneratedKeys="true" keyProperty="ordercontenttbId">
+  <insert id="insert" parameterType="OrderContent" useGeneratedKeys="true" keyProperty="ordercontenttbId">
     insert into ordercontenttb ( ordertb_id)
     values (#{ordertbId})
   </insert>
-  <insert id="insertSelective" parameterType="com.craftsman.ssm.entity.OrderContent" >
+  <insert id="insertSelective" parameterType="OrderContent" >
     insert into ordercontenttb
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="ordercontenttbId != null" >
@@ -51,7 +51,7 @@
      
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.OrderContent" >
+  <update id="updateByPrimaryKeySelective" parameterType="OrderContent" >
     update ordercontenttb
     <set >
       <if test="ordertbId != null" >
@@ -61,7 +61,7 @@
     </set>
     where ordercontenttb_id = #{ordercontenttbId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.OrderContent" >
+  <update id="updateByPrimaryKey" parameterType="OrderContent" >
     update ordercontenttb
     set ordertb_id = #{ordertbId,jdbcType=INTEGER}
     where ordercontenttb_id = #{ordercontenttbId,jdbcType=INTEGER}

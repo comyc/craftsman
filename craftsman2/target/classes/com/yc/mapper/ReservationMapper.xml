@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.ReservationMapper">
-	<resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.Reservation">
+<mapper namespace="com.yc.mapper.ReservationMapper">
+	<resultMap id="BaseResultMap" type="Reservation">
 		<id column="reservationtb_id" property="reservationtbId" jdbcType="INTEGER" />
 		<result column="reservationtb_date" property="reservationtbDate"
 			jdbcType="DATE" />
@@ -27,7 +27,7 @@
 		from reservationtb
 		where workertb_id = #{0} and reservationtb_date=#{1} and reservationtb_period=#{2}
 	</select>
-	<select id="getReservations" parameterType="com.craftsman.ssm.entity.ReservationInfo" resultMap="BaseResultMap">
+	<select id="getReservations" parameterType="ReservationInfo" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from reservationtb
@@ -37,7 +37,7 @@
 		delete from reservationtb
 		where reservationtb_id = #{reservationtbId,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.craftsman.ssm.entity.Reservation">
+	<insert id="insert" parameterType="Reservation">
 		insert into reservationtb (reservationtb_id, reservationtb_date,
 		reservationtb_period, ordertb_id, workertb_id
 		)
@@ -48,7 +48,7 @@
 		
 		)
 	</insert>
-	<insert id="insertSelective" parameterType="com.craftsman.ssm.entity.Reservation">
+	<insert id="insertSelective" parameterType="Reservation">
 		insert into reservationtb
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="reservationtbId != null">
@@ -87,7 +87,7 @@
 		
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.Reservation">
+	<update id="updateByPrimaryKeySelective" parameterType="Reservation">
 		update reservationtb
 		<set>
 			<if test="reservationtbDate != null">
@@ -114,7 +114,7 @@
 		</set>
 		where reservationtb_id = #{reservationtbId,jdbcType=INTEGER}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.Reservation">
+	<update id="updateByPrimaryKey" parameterType="Reservation">
 		update reservationtb
 		set reservationtb_date = #{reservationtbDate,jdbcType=DATE},
 		reservationtb_period = #{reservationtbPeriod,jdbcType=INTEGER},

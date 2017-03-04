@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.OrderItemMapper" >
-  <resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.OrderItem" >
+<mapper namespace="com.yc.mapper.OrderItemMapper" >
+  <resultMap id="BaseResultMap" type="OrderItem" >
     <id column="orderitemtb_id" property="orderitemtbId" jdbcType="INTEGER" />
     <result column="ordercontenttb_id" property="ordercontenttbId" jdbcType="INTEGER" />
     <result column="orderitemtb_name" property="orderitemtbName" jdbcType="VARCHAR" />
@@ -26,13 +26,13 @@
     delete from orderitemtb
     where orderitemtb_id = #{orderitemtbId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.craftsman.ssm.entity.OrderItem" useGeneratedKeys="true" keyProperty="orderitemtbId">
+  <insert id="insert" parameterType="OrderItem" useGeneratedKeys="true" keyProperty="orderitemtbId">
     insert into orderitemtb (orderitemtb_id, ordercontenttb_id, 
       orderitemtb_name, orderitemtb_content)
     values (#{orderitemtbId,jdbcType=INTEGER}, #{ordercontenttbId,jdbcType=INTEGER}, 
       #{orderitemtbName,jdbcType=VARCHAR}, #{orderitemtbContent,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.craftsman.ssm.entity.OrderItem"  useGeneratedKeys="true" keyProperty="orderitemtbId">
+  <insert id="insertSelective" parameterType="OrderItem"  useGeneratedKeys="true" keyProperty="orderitemtbId">
     insert into orderitemtb
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="orderitemtbId != null" >
@@ -65,7 +65,7 @@
       
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.OrderItem" >
+  <update id="updateByPrimaryKeySelective" parameterType="OrderItem" >
     update orderitemtb
     <set >
       <if test="ordercontenttbId != null" >
@@ -81,7 +81,7 @@
     </set>
     where orderitemtb_id = #{orderitemtbId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.OrderItem" >
+  <update id="updateByPrimaryKey" parameterType="OrderItem" >
     update orderitemtb
     set ordercontenttb_id = #{ordercontenttbId,jdbcType=INTEGER},
       orderitemtb_name = #{orderitemtbName,jdbcType=VARCHAR},

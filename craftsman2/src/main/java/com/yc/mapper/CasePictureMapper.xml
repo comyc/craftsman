@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.CasePictureMapper" >
-  <resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.CasePicture" >
+<mapper namespace="com.yc.mapper.CasePictureMapper" >
+  <resultMap id="BaseResultMap" type="CasePicture" >
     <id column="casepicturetb_id" property="casepicturetbId" jdbcType="INTEGER" />
     <result column="workercasetb_id" property="workercasetbId" jdbcType="INTEGER" />
     <result column="casepicturetb_pic" property="casepicturetbPic" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from casepicturetb
     where casepicturetb_id = #{casepicturetbId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.craftsman.ssm.entity.CasePicture" >
+  <insert id="insert" parameterType="CasePicture" >
     insert into casepicturetb (casepicturetb_id, workercasetb_id, 
       casepicturetb_pic, alternative1, alternative2, 
       alternative3)
@@ -31,7 +31,7 @@
       #{casepicturetbPic,jdbcType=VARCHAR}, #{alternative1,jdbcType=VARCHAR}, #{alternative2,jdbcType=VARCHAR}, 
       #{alternative3,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.craftsman.ssm.entity.CasePicture" >
+  <insert id="insertSelective" parameterType="CasePicture" >
     insert into casepicturetb
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="casepicturetbId != null" >
@@ -74,7 +74,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.CasePicture" >
+  <update id="updateByPrimaryKeySelective" parameterType="CasePicture" >
     update casepicturetb
     <set >
       <if test="workercasetbId != null" >
@@ -95,7 +95,7 @@
     </set>
     where casepicturetb_id = #{casepicturetbId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.CasePicture" >
+  <update id="updateByPrimaryKey" parameterType="CasePicture" >
     update casepicturetb
     set workercasetb_id = #{workercasetbId,jdbcType=INTEGER},
       casepicturetb_pic = #{casepicturetbPic,jdbcType=VARCHAR},

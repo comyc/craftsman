@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.WorkerCaseMapper" >
-  <resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.WorkerCase" >
+<mapper namespace="com.yc.mapper.WorkerCaseMapper" >
+  <resultMap id="BaseResultMap" type="WorkerCase" >
     <id column="workercasetb_id" property="workercasetbId" jdbcType="INTEGER" />
     <result column="workertb_id" property="workertbId" jdbcType="INTEGER" />
     <result column="workercasetb_name" property="workercasetbName" jdbcType="VARCHAR" />
@@ -25,7 +25,7 @@
     delete from workercasetb
     where workercasetb_id = #{workercasetbId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.craftsman.ssm.entity.WorkerCase" >
+  <insert id="insert" parameterType="WorkerCase" >
     insert into workercasetb (workercasetb_id, workertb_id, workercasetb_name, 
       workertypetb_summary, workertypetb_pic, alternative1, 
       alternative2, alternative3)
@@ -33,7 +33,7 @@
       #{workertypetbSummary,jdbcType=VARCHAR}, #{workertypetbPic,jdbcType=VARCHAR}, #{alternative1,jdbcType=VARCHAR}, 
       #{alternative2,jdbcType=VARCHAR}, #{alternative3,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.craftsman.ssm.entity.WorkerCase" >
+  <insert id="insertSelective" parameterType="WorkerCase" >
     insert into workercasetb
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="workercasetbId != null" >
@@ -88,7 +88,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.WorkerCase" >
+  <update id="updateByPrimaryKeySelective" parameterType="WorkerCase" >
     update workercasetb
     <set >
       <if test="workertbId != null" >
@@ -115,7 +115,7 @@
     </set>
     where workercasetb_id = #{workercasetbId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.WorkerCase" >
+  <update id="updateByPrimaryKey" parameterType="WorkerCase" >
     update workercasetb
     set workertb_id = #{workertbId,jdbcType=INTEGER},
       workercasetb_name = #{workercasetbName,jdbcType=VARCHAR},

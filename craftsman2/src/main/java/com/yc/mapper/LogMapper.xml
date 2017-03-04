@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.LogMapper" >
-  <resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.Log" >
+<mapper namespace="com.yc.mapper.LogMapper" >
+  <resultMap id="BaseResultMap" type="Log" >
     <id column="logtb_id" property="logtbId" jdbcType="INTEGER" />
     <result column="logtb_time" property="logtbTime" jdbcType="TIMESTAMP" />
     <result column="logtb_content" property="logtbContent" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from logtb
     where logtb_id = #{logtbId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.craftsman.ssm.entity.Log" >
+  <insert id="insert" parameterType="Log" >
     insert into logtb (logtb_id, logtb_time, logtb_content, 
       alternative1, alternative2, alternative3
       )
@@ -30,7 +30,7 @@
       #{alternative1,jdbcType=VARCHAR}, #{alternative2,jdbcType=VARCHAR}, #{alternative3,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.craftsman.ssm.entity.Log" >
+  <insert id="insertSelective" parameterType="Log" >
     insert into logtb
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="logtbId != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.Log" >
+  <update id="updateByPrimaryKeySelective" parameterType="Log" >
     update logtb
     <set >
       <if test="logtbTime != null" >
@@ -94,7 +94,7 @@
     </set>
     where logtb_id = #{logtbId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.Log" >
+  <update id="updateByPrimaryKey" parameterType="Log" >
     update logtb
     set logtb_time = #{logtbTime,jdbcType=TIMESTAMP},
       logtb_content = #{logtbContent,jdbcType=VARCHAR},

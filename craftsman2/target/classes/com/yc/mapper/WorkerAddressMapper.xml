@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.WorkerAddressMapper" >
-  <resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.WorkerAddress" >
+<mapper namespace="com.yc.mapper.WorkerAddressMapper" >
+  <resultMap id="BaseResultMap" type="WorkerAddress" >
     <id column="workeraddresstb" property="workeraddresstb" jdbcType="INTEGER" />
     <result column="workertb_id" property="workertbId" jdbcType="INTEGER" />
     <result column="workeraddresstb_address" property="workeraddresstbAddress" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
     delete from workeraddresstb
     where workeraddresstb = #{workeraddresstb,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.craftsman.ssm.entity.WorkerAddress" >
+  <insert id="insert" parameterType="WorkerAddress" >
     insert into workeraddresstb (workeraddresstb, workertb_id, workeraddresstb_address, 
       alternative1, alternative2, alternative3
       )
@@ -31,7 +31,7 @@
       #{alternative1,jdbcType=VARCHAR}, #{alternative2,jdbcType=VARCHAR}, #{alternative3,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.craftsman.ssm.entity.WorkerAddress" >
+  <insert id="insertSelective" parameterType="WorkerAddress" >
     insert into workeraddresstb
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="workeraddresstb != null" >
@@ -74,7 +74,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.WorkerAddress" >
+  <update id="updateByPrimaryKeySelective" parameterType="WorkerAddress" >
     update workeraddresstb
     <set >
       <if test="workertbId != null" >
@@ -95,7 +95,7 @@
     </set>
     where workeraddresstb = #{workeraddresstb,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.WorkerAddress" >
+  <update id="updateByPrimaryKey" parameterType="WorkerAddress" >
     update workeraddresstb
     set workertb_id = #{workertbId,jdbcType=INTEGER},
       workeraddresstb_address = #{workeraddresstbAddress,jdbcType=VARCHAR},

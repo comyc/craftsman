@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.WorkerDetailInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.WorkerDetailInfo" >
+<mapper namespace="com.yc.mapper.WorkerDetailInfoMapper" >
+  <resultMap id="BaseResultMap" type="WorkerDetailInfo" >
     <id column="workerdetailinfotb_id" property="workerdetailinfotbId" jdbcType="INTEGER" />
     <result column="workertb_id" property="workertbId" jdbcType="INTEGER" />
     <result column="detailinfoitemtb_id" property="detailinfoitemtbId" jdbcType="INTEGER" />
@@ -24,7 +24,7 @@
     delete from workerdetailinfotb
     where workerdetailinfotb_id = #{workerdetailinfotbId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.craftsman.ssm.entity.WorkerDetailInfo" >
+  <insert id="insert" parameterType="WorkerDetailInfo" >
     insert into workerdetailinfotb (workerdetailinfotb_id, workertb_id, 
       detailinfoitemtb_id, workerdetailinfotb_content, 
       alternative1, alternative2, alternative3
@@ -34,7 +34,7 @@
       #{alternative1,jdbcType=VARCHAR}, #{alternative2,jdbcType=VARCHAR}, #{alternative3,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.craftsman.ssm.entity.WorkerDetailInfo" >
+  <insert id="insertSelective" parameterType="WorkerDetailInfo" >
     insert into workerdetailinfotb
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="workerdetailinfotbId != null" >
@@ -83,7 +83,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.WorkerDetailInfo" >
+  <update id="updateByPrimaryKeySelective" parameterType="WorkerDetailInfo" >
     update workerdetailinfotb
     <set >
       <if test="workertbId != null" >
@@ -107,7 +107,7 @@
     </set>
     where workerdetailinfotb_id = #{workerdetailinfotbId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.WorkerDetailInfo" >
+  <update id="updateByPrimaryKey" parameterType="WorkerDetailInfo" >
     update workerdetailinfotb
     set workertb_id = #{workertbId,jdbcType=INTEGER},
       detailinfoitemtb_id = #{detailinfoitemtbId,jdbcType=INTEGER},

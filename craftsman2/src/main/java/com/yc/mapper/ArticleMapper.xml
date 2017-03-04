@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.ArticleMapper">
-	<resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.Article">
+<mapper namespace="com.yc.mapper.ArticleMapper">
+	<resultMap id="BaseResultMap" type="Article">
 		<id column="articletb_id" property="articletbId" jdbcType="INTEGER" />
 		<result column="articletb_type" property="articletbType"
 			jdbcType="INTEGER" />
@@ -14,7 +14,7 @@
 		<result column="articletb_path" property="articletbPath"
 			jdbcType="VARCHAR" />
 	</resultMap>
-	<resultMap id="ResultMapWithBLOBs" type="com.craftsman.ssm.entity.Article"
+	<resultMap id="ResultMapWithBLOBs" type="Article"
 		extends="BaseResultMap">
 		<result column="articletb_content" property="articletbContent"
 			jdbcType="LONGVARBINARY" />
@@ -60,7 +60,7 @@
 		articletb
 		where articletb_id = #{articletbId,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.craftsman.ssm.entity.Article">
+	<insert id="insert" parameterType="Article">
 		insert into articletb
 		(articletb_id, articletb_type, articletb_author,
 		articletb_time,
@@ -73,7 +73,7 @@
 		#{articletbTitle,jdbcType=VARCHAR}, #{articletbPath,jdbcType=VARCHAR},
 		#{articletbContent,jdbcType=LONGVARBINARY})
 	</insert>
-	<insert id="insertSelective" parameterType="com.craftsman.ssm.entity.Article">
+	<insert id="insertSelective" parameterType="Article">
 		insert into articletb
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="articletbId != null">
@@ -122,7 +122,7 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.Article">
+	<update id="updateByPrimaryKeySelective" parameterType="Article">
 		update articletb
 		<set>
 			<if test="articletbType != null">
@@ -147,7 +147,7 @@
 		</set>
 		where articletb_id = #{articletbId,jdbcType=INTEGER}
 	</update>
-	<update id="updateByPrimaryKeyWithBLOBs" parameterType="com.craftsman.ssm.entity.Article">
+	<update id="updateByPrimaryKeyWithBLOBs" parameterType="Article">
 		update
 		articletb
 		set articletb_type = #{articletbType,jdbcType=INTEGER},
@@ -163,7 +163,7 @@
 		where articletb_id =
 		#{articletbId,jdbcType=INTEGER}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.Article">
+	<update id="updateByPrimaryKey" parameterType="Article">
 		update articletb
 		set articletb_type = #{articletbType,jdbcType=INTEGER},
 		articletb_author = #{articletbAuthor,jdbcType=VARCHAR},

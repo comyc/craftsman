@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.WorkerTypeMapper">
-	<resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.WorkerType">
+<mapper namespace="com.yc.mapper.WorkerTypeMapper">
+	<resultMap id="BaseResultMap" type="WorkerType">
 		<id column="workertypetb_id" property="workertypetbId" jdbcType="INTEGER" />
 		<result column="workertypetb_name" property="workertypetbName"
 			jdbcType="VARCHAR" />
@@ -59,7 +59,7 @@
 		workertypetb
 		where workertypetb_id = #{workertypetbId,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.craftsman.ssm.entity.WorkerType">
+	<insert id="insert" parameterType="WorkerType">
 		insert into workertypetb
 		(workertypetb_id, workertypetb_name,
 		workertypetb_summary,
@@ -69,7 +69,7 @@
 		#{workertypetbSummary,jdbcType=VARCHAR},
 		#{workertypetbPic,jdbcType=VARCHAR})
 	</insert>
-	<insert id="insertSelective" parameterType="com.craftsman.ssm.entity.WorkerType">
+	<insert id="insertSelective" parameterType="WorkerType">
 		insert into workertypetb
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="workertypetbId != null">
@@ -102,7 +102,7 @@
 
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.WorkerType">
+	<update id="updateByPrimaryKeySelective" parameterType="WorkerType">
 		update workertypetb
 		<set>
 			<if test="workertypetbName != null">
@@ -119,7 +119,7 @@
 		</set>
 		where workertypetb_id = #{workertypetbId,jdbcType=INTEGER}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.WorkerType">
+	<update id="updateByPrimaryKey" parameterType="WorkerType">
 		update
 		workertypetb
 		set workertypetb_name =

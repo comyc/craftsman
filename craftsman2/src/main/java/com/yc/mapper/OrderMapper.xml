@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.craftsman.ssm.mapper.OrderMapper">
-	<resultMap id="BaseResultMap" type="com.craftsman.ssm.entity.Order">
+<mapper namespace="com.yc.mapper.OrderMapper">
+	<resultMap id="BaseResultMap" type="Order">
 		<id column="ordertb_id" property="ordertbId" jdbcType="INTEGER" />
 		<result column="usertb_id" property="usertbId" jdbcType="INTEGER" />
 		<result column="usertb_name" property="usertbName" jdbcType="VARCHAR" />
@@ -46,7 +46,7 @@
 		#{ordertbId,jdbcType=INTEGER}
 	</select>
 
-	<resultMap type="com.craftsman.ssm.entity.OrderInfo" id="OrderInfoResultMap">
+	<resultMap type="OrderInfo" id="OrderInfoResultMap">
 
 		<id column="ordertb_id" property="ordertbId" jdbcType="INTEGER" />
 		<result column="usertb_id" property="usertbId" jdbcType="INTEGER" />
@@ -68,8 +68,8 @@
 			jdbcType="TIMESTAMP" />
 		<result column="ordertb_endtime" property="ordertbEndtime"
 			jdbcType="TIMESTAMP" />
-		<association property="worker" javaType="com.craftsman.ssm.entity.Worker"
-			resultMap="com.craftsman.ssm.mapper.WorkerMapper.BaseResultMap" />
+		<association property="worker" javaType="Worker"
+			resultMap="com.yc.mapper.WorkerMapper.BaseResultMap" />
 
 	</resultMap>
 
@@ -108,7 +108,7 @@
 		set
 		ordertb_status =7 where ordertb_id = #{ordertbId,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.craftsman.ssm.entity.Order"
+	<insert id="insert" parameterType="Order"
 		useGeneratedKeys="true" keyProperty="ordertbId">
 		insert into ordertb (ordertb_id,
 		usertb_id, workertb_id,
@@ -121,7 +121,7 @@
 		#{ordertbPayment,jdbcType=INTEGER}, #{ordertbMoney,jdbcType=DOUBLE},
 		now(), #{ordertbEndtime,jdbcType=TIMESTAMP})
 	</insert>
-	<insert id="quickorder" parameterType="com.craftsman.ssm.entity.Order" useGeneratedKeys="true" keyProperty="ordertbId">
+	<insert id="quickorder" parameterType="Order" useGeneratedKeys="true" keyProperty="ordertbId">
     insert into ordertb
     <trim prefix="(" suffix=")" suffixOverrides="," >
      <!--  <if test="ordertbId != null" >
@@ -176,7 +176,7 @@
     </trim>
   </insert>
 	<!-- 更新订单的评论状态 -->
-  <update id="updateOrderevaluationState" parameterType="com.craftsman.ssm.entity.Order" >
+  <update id="updateOrderevaluationState" parameterType="Order" >
     update ordertb
     <set >
       <if test="usertbId != null" >
@@ -206,7 +206,7 @@
     </set>
     where ordertb_id = #{ordertbId,jdbcType=INTEGER}
   </update>
-	<update id="updateByPrimaryKeySelective" parameterType="com.craftsman.ssm.entity.Order">
+	<update id="updateByPrimaryKeySelective" parameterType="Order">
 		update ordertb
 		<set>
 			<if test="usertbId != null">
@@ -235,7 +235,7 @@
 		</set>
 		where ordertb_id = #{ordertbId,jdbcType=INTEGER}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="com.craftsman.ssm.entity.Order">
+	<update id="updateByPrimaryKey" parameterType="Order">
 		update ordertb
 		set
 		usertb_id = #{usertbId,jdbcType=INTEGER},
