@@ -3,4 +3,5 @@
 	case工人案例图片
 	head头像图片
 攻略放在txt文件夹下的article目录中
-666   ttt   yyy 按时
+666   ttt  
+的房间打扫
